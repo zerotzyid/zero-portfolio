@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#111111"/>
+  <rect x="60" y="60" width="1080" height="510" rx="24" fill="none" stroke="#333333" stroke-width="2"/>
+  <text x="120" y="280" font-family="monospace" font-size="96" font-weight="bold" fill="#fefefe">ZeroTzy.ID</text>
+  <text x="120" y="360" font-family="monospace" font-size="36" fill="#a3a3a3">Developer / Builder — Linux · React · Docker</text>
+  <rect x="120" y="410" width="120" height="6" fill="#e11d48"/>
+</svg>

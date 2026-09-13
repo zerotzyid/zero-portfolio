@@ -1,0 +1,15 @@
+services:
+  portfolio:
+    build: .
+    container_name: zero-portfolio
+    ports:
+      - "3456:3456"
+    environment:
+      - PORT=3456
+      - MONGODB_URI=${MONGODB_URI:-}
+      - MONGODB_DB=${MONGODB_DB:-zero-portfolio}
+      - ADMIN_TOKEN=${ADMIN_TOKEN:-}
+      - CDNZERO_BASE=${CDNZERO_BASE:-https://api-cdnzero.vercel.app}
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped

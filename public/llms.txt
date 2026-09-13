@@ -1,0 +1,17 @@
+# ZeroTzy.ID
+
+> Portfolio Zero — Developer, Builder, Creative Technologist (Indonesia).
+> Spesialis: Linux VPS, Nginx, panel game server (Pyrodactyl), web modern TypeScript.
+
+- Home: https://zerowebsite.eu.org/
+- Work: https://zerowebsite.eu.org/work
+- About: https://zerowebsite.eu.org/about
+- Experiments: https://zerowebsite.eu.org/experiments
+- Contact: https://zerowebsite.eu.org/contact
+
+## Stack
+Linux, Nginx, Docker, TypeScript, React, Python, Bash
+
+## Machine-readable summary
+- JSON: https://zerowebsite.eu.org/api/ai-summary
+- Sitemap: https://zerowebsite.eu.org/sitemap.xml

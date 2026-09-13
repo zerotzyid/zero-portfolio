@@ -93,14 +93,15 @@ img { max-width: 100%; height: auto; }
 .nav-shell { transition: box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease; }
 .nav-scrolled { box-shadow: 0 8px 24px -12px rgba(0, 0, 0, 0.28); background-color: rgba(254, 254, 254, 0.98); }
 
-/* ---------- backdrop: grid statis (nol JS) ---------- */
-.bg-grid {
+/* ---------- backdrop: grid gerak (drift diagonal + pulse via JS) ---------- */
+.bg-grid-anim {
   background-image:
     linear-gradient(to right, rgba(10, 10, 10, 0.055) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(10, 10, 10, 0.055) 1px, transparent 1px);
   background-size: 44px 44px;
   -webkit-mask-image: radial-gradient(ellipse 90% 75% at 50% 25%, black 25%, transparent 78%);
   mask-image: radial-gradient(ellipse 90% 75% at 50% 25%, black 25%, transparent 78%);
+  will-change: transform, opacity;
 }
 
 /* ---------- engine explorer: dot-grid ripple ---------- */

@@ -1,14 +1,16 @@
 import { useEffect, useRef } from 'react'
-import { loopFloat, loopDrift, reduced } from '../lib/anim'
+import { animate } from 'animejs'
+import { loopFloat, loopDrift, loopDriftXY, reduced } from '../lib/anim'
 
 /**
  * Latar global: grid + wave + orbs, semuanya smooth & ringan.
- * - Grid: statis (CSS mask).
+ * - Grid: drift diagonal + pulse opacity (transform/opacity-only, alternate loop).
  * - Wave: 2 lapis drift horizontal bolak-balik (transform-only, alternate loop).
  * - Orbs: 2 blob radial float vertikal lambat.
  * Semua fixed ke viewport, pointer-events-none, hormati reduced-motion.
  */
 export function Backdrop() {
+  const grid = useRef<HTMLDivElement>(null)
   const w1 = useRef<HTMLDivElement>(null)
   const w2 = useRef<HTMLDivElement>(null)
   const o1 = useRef<HTMLDivElement>(null)
@@ -17,6 +19,9 @@ export function Backdrop() {
   useEffect(() => {
     if (reduced()) return
     const cleanups = [
+      // grid: geser diagonal pelan 1 sel (44px) + napas opacity
+      loopDriftXY(grid.current, 22, 14000),
+      ...(grid.current ? [animate(grid.current, { opacity: [0.55, 1], duration: 6000, ease: 'inOutSine', loop: true, alternate: true })] : []),
       loopDrift(w1.current, 60, 11000),
       loopDrift(w2.current, 90, 15000, 1200),
       loopFloat(o1.current, 36, 7000),
@@ -27,8 +32,8 @@ export function Backdrop() {
 
   return (
     <>
-      {/* Grid faint — fixed penuh, di-fade radial agar tidak mengganggu teks */}
-      <div aria-hidden className="bg-grid pointer-events-none fixed inset-0 -z-10" />
+      {/* Grid faint — drift + pulse halus, di-fade radial agar tidak mengganggu teks */}
+      <div ref={grid} aria-hidden className="bg-grid-anim pointer-events-none fixed inset-[-60px] -z-10" />
       {/* Orbs lembut — blob radial blur */}
       <div aria-hidden className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
         <div ref={o1} className="orb orb-a" />

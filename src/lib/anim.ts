@@ -52,3 +52,9 @@ export function loopDrift(target: any, dx = 40, duration = 9000, delay = 0) {
   if (!target || reduced()) return
   return animate(target, { x: [-dx, dx], duration, delay, ease: 'inOutSine', loop: true, alternate: true })
 }
+
+/** loop geser diagonal halus — grid background */
+export function loopDriftXY(target: any, d = 22, duration = 14000, delay = 0) {
+  if (!target || reduced()) return
+  return animate(target, { x: [-d, d], y: [-d, d], duration, delay, ease: 'inOutSine', loop: true, alternate: true })
+}
